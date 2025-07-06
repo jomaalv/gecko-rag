@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+langchain
+langchain-community
+langchain_ollama
+langchain_huggingface
+langchain_qdrant
+langgraph
+qdrant-client
+requests
+typing_extensions
