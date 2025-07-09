@@ -19,4 +19,4 @@ RUN apt update
 RUN apt install -y nano
 
 # Expose port and run app
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8002"]
