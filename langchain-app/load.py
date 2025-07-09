@@ -91,15 +91,15 @@ for j,corpus in enumerate(corpus_data):
                             .encode('ascii', 'ignore')
                             .decode('utf-8')
                         )
-                        if len(text) > 1500:
-                            chunks = split_text_into_chunks(text, 1500)
-                            for k, chunk in enumerate(chunks):
-                                #docs.append(Document(page_content=chunk, metadata=metadata))
-                                #print("Corpus " + corpus_id + " (" + str(j+1) + " of " + corpus_count + ")" + " - Document " + str(document['id']) + " (" + str(i+1) + " of " + docs_count + ")")
-                                docs.append(Document(page_content=chunk, metadata={"source": str(document['archivo']), "corpus_id": str(corpus_id), "corpus_name": corpus_name, "document": str(document['id']), "chunk": str(k+1)}))
-                        else:
+                        #if len(text) > 1500:
+                        #    chunks = split_text_into_chunks(text, 1500)
+                        #    for k, chunk in enumerate(chunks):
+                        #        #docs.append(Document(page_content=chunk, metadata=metadata))
+                        #        #print("Corpus " + corpus_id + " (" + str(j+1) + " of " + corpus_count + ")" + " - Document " + str(document['id']) + " (" + str(i+1) + " of " + docs_count + ")")
+                        #        docs.append(Document(page_content=chunk, metadata={"source": str(document['archivo']), "corpus_id": str(corpus_id), "corpus_name": corpus_name, "document": str(document['id']), "chunk": str(k+1)}))
+                        #else:
                             #docs.append(Document(page_content=text, metadata=metadata))
-                            docs.append(Document(page_content=response["data"], metadata={"source": str(document['archivo']), "corpus_id": str(corpus_id), "corpus_name": corpus_name, "document": str(document['id']), "chunk": '1'}))
+                        docs.append(Document(page_content=response["data"], metadata={"source": str(document['archivo']), "corpus_id": str(corpus_id), "corpus_name": corpus_name, "document": str(document['id']), "chunk": '1'}))
             #print("Corpus " + corpus_id + " (" + str(j+1) + " of " + corpus_count + ")" + " - Document " + str(document['id']) + " (" + str(i+1) + " of " + docs_count + ")")            
             corpus["documents"] = doc_data
         else:
@@ -115,7 +115,7 @@ for j,corpus in enumerate(corpus_data):
         print("Text Document Size: ", text_length)
         print("Number of Docs: ", str(len(docs)))
         # print(docs[0])
-        splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=200)
+        splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
         split_docs = splitter.split_documents(docs)
         # Create vector store
         print("embedding")    
