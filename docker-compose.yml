@@ -43,6 +43,20 @@ services:
       - qdrant
       - ollama-cpu
 
+  langchain-backend-qa:
+    build: ./langchain-app-qa
+    container_name: langchain-backend
+    networks: ['demo']
+    restart: unless-stopped
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+      - QDRANT_HOST=http://qdrant:6333
+    ports:
+      - "8002:8002"
+    depends_on:
+      - qdrant
+      - ollama-cpu
+
   flutter-frontend:
     build: ./flutter-web
     container_name: flutter-frontend

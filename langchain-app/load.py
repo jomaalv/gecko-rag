@@ -110,28 +110,12 @@ for j,corpus in enumerate(corpus_data):
         corpus["documents"] = []
 
     text_length = len(response["data"])
-    #print("Text Document Size: ", text_length)
-    #print("Number of Docs: ", str(len(docs)))
-    # Example rules of thumb
-    if text_length < 1000:
-        chunk_size = 500
-        chunk_overlap = 100
-    elif text_length < 5000:
-        chunk_size = 1000
-        chunk_overlap = 200
-    else:
-        chunk_size = 1500
-        chunk_overlap = 300
-
-
-    #print(docs)
-
     if len(docs) > 0:
         print("Corpus id: ", str(corpus_id))
         print("Text Document Size: ", text_length)
         print("Number of Docs: ", str(len(docs)))
         # print(docs[0])
-        splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
+        splitter = RecursiveCharacterTextSplitter(chunk_size=800, chunk_overlap=200)
         split_docs = splitter.split_documents(docs)
         # Create vector store
         print("embedding")    

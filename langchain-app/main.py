@@ -35,15 +35,16 @@ vector_store = Qdrant.from_existing_collection(
 )
 
 #llm = ChatOllama(model="llama3")
-llm = ChatOllama(model="llama3", base_url=OLLAMA_HOST)
+
 #llm = Ollama(model="llama3", base_url=OLLAMA_HOST)
+llm = ChatOllama(model="llama3", base_url=OLLAMA_HOST)
 #llm = OllamaLLM(model="llama3", base_url=OLLAMA_HOST)
 prompt = hub.pull("rlm/rag-prompt")
 
 class Search(TypedDict):
     query: Annotated[str, ..., "Search query to run."]
     section: Annotated[
-        Literal["Aprendiendo sobre el Método de los Elementos Finitos.txt", "MTDs.txt", "AME1CO.txt", "AME1CR.txt", "AME1JN.txt"],
+        Literal["aprendiendo_sobre_el_metodo_de_los_elementos_finitos.txt", "mtds.txt", "ame1co.txt", "ame1cr.txt", "ame1jn.txt"],
         ..., "Section to query."
     ]
 

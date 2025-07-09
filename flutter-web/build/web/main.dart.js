@@ -72331,7 +72331,7 @@ o.e.pf(B.KN)
 o.KL()
 q=3
 A.lV("Sending message to API: "+a)
-k=A.fQ("http://13.58.69.121:8000/ask")
+k=A.fQ("http://3.148.232.227:8000/ask")
 j=t.N
 i=A.ae(["Content-Type","application/json"],j,j)
 s=6
