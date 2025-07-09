@@ -49,17 +49,36 @@ llm = ChatOllama(model="llama3", base_url=OLLAMA_HOST)
 # ==== QA Chain ====
 retriever = vectorstore.as_retriever(search_type="similarity", search_kwargs={"k": 5})
 
-qa_chain = RetrievalQA.from_chain_type(
+qa = RetrievalQA.from_chain_type(
     llm=llm,
     retriever=retriever,
-    chain_type="stuff"  # Fastest; use "refine" if quality > speed
+    chain_type="refine"  # Fastest; use "refine" if quality > speed
 )
 app = FastAPI()
 # ==== Endpoint ====
 @app.post("/ask")
 async def ask_question(request: QuestionRequest):
     try:
-        answer = qa_chain.run(request.question)
+
+
+        # Retrieve documents manually
+        docs = retriever.get_relevant_documents(request.question)
+
+        # Deduplicate by metadata field (e.g., 'document' or '_id')
+        unique_docs = {}
+        for doc in docs:
+            doc_id = doc.metadata.get('document')  # or use '_id'
+            if doc_id not in unique_docs:
+                unique_docs[doc_id] = doc
+
+        # Display deduplicated documents
+        for i, doc in enumerate(unique_docs.values()):
+            print(f"\nDoc #{i+1}")
+            print("Content:", doc.page_content[:500])
+            print("Metadata:", doc.metadata)
+
+        answer = qa.combine_documents_chain.run(input_documents=list(unique_docs.values()), question=request.question)
+
         return {"question": request.question, "answer": answer}
     except Exception as e:
         return {"error": str(e)}
