@@ -2,8 +2,9 @@ from fastapi import FastAPI
 from pydantic import BaseModel
 from starlette.middleware.cors import CORSMiddleware
 
-from langchain.vectorstores import Qdrant
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.vectorstores import Qdrant
+from qdrant_client import QdrantClient
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain.chains import RetrievalQA
 from langchain_community.chat_models import ChatOllama
 
@@ -32,11 +33,15 @@ class QuestionRequest(BaseModel):
 # ==== Embedding and Vector Store ====
 embedding = HuggingFaceEmbeddings(model_name="/app/local_models/all-MiniLM-L6-v2")
 
-vectorstore = Qdrant(
-    url=QDRANT_HOST,
-    collection_name="corpus_gecko3",
-    embeddings=embedding
+qdrant = QdrantClient(
+    url=QDRANT_HOST,  # or remote URL
 )
+vectorstore = Qdrant(
+    client=qdrant,
+    collection_name="corpus_gecko3",  # <- replace with your collection name
+    embeddings=embedding,
+)
+
 
 # ==== LLM (Ollama) ====
 llm = ChatOllama(model="llama3", base_url=OLLAMA_HOST)
