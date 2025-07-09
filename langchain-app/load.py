@@ -14,7 +14,7 @@ import re
 
 from langchain.schema import Document
 from langchain_ollama import ChatOllama
-import bs4
+
 from langchain import hub
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_core.documents import Document
