@@ -1,5 +1,58 @@
 # Gecko RAG - Resumen General del Proyecto
 
+## ¿Qué es GECO?
+
+GECO (Sistema de Gestión de Corpus) es la plataforma fundamental de gestión de corpus desarrollada por el Grupo de Ingeniería Lingüística del Instituto de Ingeniería de la UNAM (Universidad Nacional Autónoma de México). Este proyecto Gecko RAG extiende y potencia las capacidades de GECO mediante funcionalidades avanzadas de RAG (Generación Aumentada por Recuperación).
+
+### Acerca del Sistema GECO
+
+**GECO 3.0** es un sistema integral de gestión de corpus que sirve como plataforma centralizada para la investigación lingüística y el procesamiento de lenguaje natural. Proporciona:
+
+**Funcionalidades Principales:**
+- **Gestión de Corpus**: Sistema estructurado para organizar, almacenar y acceder a grandes colecciones de textos
+- **Procesamiento de Documentos**: Herramientas para convertir y procesar varios formatos de documentos
+- **Gestión de Usuarios**: Plataforma multiusuario con autenticación y control de acceso
+- **Interfaz Web**: Acceso basado en navegador a recursos y herramientas de corpus
+
+
+### Corpus Destacados en GECO
+
+La plataforma GECO alberga diversos corpus lingüísticos incluyendo:
+
+**Investigación Sociolingüística:**
+- **Corpus Cempasúchil**: Conversaciones de WhatsApp de estudiantes de la UNAM (617 chats bilaterales de 2017)
+- **Corpus del Habla de Sinaloa**: Documentación de dialectos regionales con análisis sociolingüístico
+
+**Corpus de Dominios Especializados:**
+- **Corpus de las Sexualidades de México (CSMX)**: Colección integral sobre terminología de sexualidad
+- **Corpus Lingüístico en Ingeniería (CLI)**: Corpus en español enfocado en ingeniería
+- **Corpus de medicina**: Terminología médica con más de 500,000 palabras
+
+**Corpus Multilingües y Paralelos:**
+- **Corpus de Contextos Definitorios**: Contextos definitorios en español-francés
+- **Corpus paralelo de Biblias**: Textos bíblicos paralelos alineados a nivel de versículo
+
+**Análisis de Redes Sociales y Sentimientos:**
+- **SENT-COVID**: 4,986 tweets anotados para análisis de sentimientos sobre COVID-19
+- **T-MexNeg**: 13,704 tweets en español mexicano con análisis de estructuras de negación
+- **HeteroCorpus**: Tweets en inglés marcados para contenido heteronormativo
+
+### Integración con Gecko RAG
+
+Este proyecto Gecko RAG extiende las capacidades de GECO mediante:
+
+**Búsqueda Mejorada**: Transición de búsqueda tradicional por palabras clave a búsqueda semántica por similitud usando embeddings vectoriales
+
+**Respuestas Impulsadas por IA**: Adición de capacidades de generación de lenguaje natural para proporcionar respuestas contextuales en lugar de solo recuperación de documentos
+
+**Análisis Avanzado**: Implementación de análisis inteligente de consultas para enrutar preguntas a las secciones de corpus más relevantes
+
+**Interfaz Moderna**: Provisión de una interfaz web contemporánea construida con Flutter para una experiencia de usuario mejorada
+
+**Arquitectura Escalable**: Despliegue en contenedores con arquitectura de microservicios para mejor escalabilidad y mantenimiento
+
+La integración mantiene compatibilidad con la API existente de GECO mientras añade una poderosa capa RAG que transforma el acceso estático a corpus en un sistema interactivo e inteligente de consulta de documentos.
+
 ## Descripción del Proyecto
 
 Gecko RAG es un sistema de Generación Aumentada por Recuperación (RAG) diseñado para proporcionar capacidades inteligentes de preguntas y respuestas sobre documentos académicos y técnicos. El sistema integra múltiples tecnologías para crear una plataforma completa de búsqueda y respuesta de documentos impulsada por IA.

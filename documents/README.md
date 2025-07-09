@@ -65,6 +65,16 @@ Esta carpeta contiene la documentación completa del sistema Gecko RAG, organiza
 - Métricas de rendimiento y calidad
 - Debugging y troubleshooting
 
+#### [07 - Uso de APIs y Ejemplos de Interacción](./07-uso-apis.md)
+**Descripción**: Guía completa para interactuar con las APIs del sistema
+- API RAG Avanzada (puerto 8000) con LangGraph
+- API QA Simplificada (puerto 8002) para respuestas directas
+- Ejemplos prácticos con curl y capturas de pantalla
+- Comparación detallada de funcionalidades
+- Casos de uso recomendados para cada API
+- Integración con aplicaciones externas
+- Troubleshooting y optimización de rendimiento
+
 ## Guía de Navegación
 
 ### Para Desarrolladores Nuevos
